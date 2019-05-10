@@ -59,7 +59,7 @@ section{display: flex;}
 }
 .logo{
     max-width: 100%;
-    max-height: auto;
+    height: auto;
 }
 
 .search-box{
@@ -114,5 +114,5 @@ section{display: flex;}
 
 .profile-pic img{
     border-radius: 100px;
-    max-width: 100px;
+    max-width: 100%;
 }
