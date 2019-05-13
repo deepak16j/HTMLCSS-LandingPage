@@ -203,6 +203,7 @@ section{display: flex;}
     left: 50px;
     right: 50px;
     z-index: 1;
+    bottom: 30px
 }
 .full-banner-image{
     flex:  0 0 58.333333%;
@@ -213,7 +214,7 @@ section{display: flex;}
 }
 
 .full-banner-sidebar{
-    flex: 0 0 41.66667%;
+    flex: 0 0 41.666667%;
     background-color: #364147;
     text-transform: uppercase;
     padding: 30px;
@@ -240,7 +241,7 @@ section{display: flex;}
     line-height: 1;
 }
 .full-banner-sidebar > div:nth-of-type(2){
-    font-size: 2;
+    font-size: 25px;
     font-weight: 200;
     letter-spacing: 3px;
 }
