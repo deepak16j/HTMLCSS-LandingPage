@@ -1,0 +1,304 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" href="images/logo.png" />
+<title>Punjab Hydraulics Products</title>
+<meta name="description" content="">
+<meta name="copyright" content="">
+<meta name="author" content="">
+<link type="text/css" href="style.css" rel="stylesheet" media="all" >
+
+<!-- Add jQuery library -->
+	<script type="text/javascript" src="lib/jquery-1.8.2.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.3"></script>
+	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.2" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+</head>
+<body>
+<div id="wrap">
+  <div id="header"> <img src="images/logo.png" alt="" align="left" width="304" height="77" border="0">
+    <div id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="brand.html">Brands</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="catalogs.html">Catalogs</a></li>
+      </ul>
+    </div>
+    <div class="flotrt"><img src="images/right-Logo.png" alt="" align="top" width="68" height="48" border="0"></div>
+    <br clear="all" />
+  </div>
+  <object width="980" height="212" id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+    <param name="movie" value="images/header.swf">
+    <param name="quality" value="high">
+    <param name="wmode" value="transparent">
+    <param name="swfversion" value="9.0.45.0">
+    <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
+    <param name="expressinstall" value="Scripts/expressInstall.swf">
+    <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+    <!--[if !IE]>-->
+    <object width="980" height="212" type="application/x-shockwave-flash" data="images/header.swf">
+    <!--<![endif]-->
+    <param name="quality" value="high">
+    <param name="wmode" value="transparent">
+    <param name="swfversion" value="9.0.45.0">
+    <param name="expressinstall" value="Scripts/expressInstall.swf">
+    <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+    <img width="980" height="212" border="0" alt="" src="images/banner.jpg">
+    <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+  </object>
+  <!--<img src="images/banner.jpg" align="absmiddle" width="980" height="212" border="0">-->
+  <div class="container">
+    <div id="Productmain">
+      <h2>Pins &amp; locks</h2>
+      <ul>
+        <li><a class="fancybox" href="images/pins_locks/big1.jpg" data-fancybox-group="gallery"><img src="images/pins_locks/small1.jpg" alt="" /></a> <br clear="all">
+          <p>&nbsp;</p>
+        </li>
+        <li><a class="fancybox" href="images/pins_locks/big2.jpg" data-fancybox-group="gallery"><img src="images/pins_locks/small2.jpg" alt="" /></a> <br clear="all">
+          <p>&nbsp;</p>
+        </li>
+        <li><a class="fancybox" href="images/pins_locks/big3.jpg" data-fancybox-group="gallery"><img src="images/pins_locks/small3.jpg" alt="" /></a> <br clear="all">
+          <p>&nbsp;</p>
+        </li>
+        
+      </ul>
+    </div>
+    <div id="sidebar">
+      <div class="sidebarBlckBox">
+        <h2><span>OUR</span> LEADING PRODUCTS</h2>
+        <ul>
+          <li><a href="track_roller.html">My nanme is Deepak</a></li>
+          <li><a href="top_roller.html">TOP ROLLER</a></li>
+          <li><a href="sprocket.html">SPROCKET</a></li>
+          <li><a href="idler.html">IDLER</a></li>
+          <li><a href="link.html">TRACK LINK ASSLLY</a></li>
+          <li><a href="filter.html">FILTERS</a></li>
+          <li><a href="bucket-adapter.html">BUCKET ADAPTER</a></li>
+          <li><a href="bucket-teeth.html">BUCKET TEETH</a></li>
+          <li><a href="side_cutter.html">SIDE CUTTER</a></li>
+          <li><a href="ripper-shanks.html">RIPPER SHNAKS</a></li>
+          <li><a href="piston.html">PISTON SHOE</a></li>
+          <li><a href="pins_locks.html">PINS & LOCKS</a></li>
+          <li><a href="under-carriage.html">UNDER CARRIAGE</a></li>
+          <li><a href="pump_parts.html">PUMP PARTS</a></li>
+          <li><a href="rotor.html">ROTOR</a></li>
+          <li><a href="set_plate.html">SET PLATE & BALL GUIDE & SHOE PLATE</a></li>
+          <li><a href="valve_plate.html">VALVE PLATE</a></li>
+        </ul>
+      </div>
+      <br clear="all">
+      <div id="InfoBox">
+        <ol>
+          <li><img src="images/tel.png" width="12" height="12" border="0"><strong>Tel:</strong> 033-2237-2691/ 3293-0780</li>
+          <li><img src="images/email.png" width="14" height="9" border="0"><strong>Email:</strong> <span><a href="mailto:">enquiry@punjabydraulics.com</a></span></li>
+        </ol>
+      </div>
+    </div>
+    <br clear="all">
+  </div>
+  <div id="footer">
+    <p class="flolt">Copyright &copy; Punjab Hydraulics. All Rights Reserved.</p>
+    <p class="flotrt">Powered by <a href="#">Nextgen Technologies.</a></p>
+  </div>
+</div>
+</body>
+</html>
